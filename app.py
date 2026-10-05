@@ -1,5 +1,7 @@
 import random
 import streamlit as st
+from tests.logic_utils import get_range_for_difficulty, parse_guess, check_guess
+
 
 def get_range_for_difficulty(difficulty: str):
     if difficulty == "Easy":
@@ -19,6 +21,9 @@ def parse_guess(raw: str):
         return False, None, "Enter a guess."
 
     try:
+        if "," in raw:
+            raw = raw.replace(",", "")
+            value = int(raw)
         if "." in raw:
             value = int(float(raw))
         else:
@@ -34,7 +39,7 @@ def check_guess(guess, secret):
         return "Win", "🎉 Correct!"
 
     try:
-        if guess > secret:
+        if guess < secret:
             return "Too High", "📈 Go HIGHER!"
         else:
             return "Too Low", "📉 Go LOWER!"
@@ -42,7 +47,7 @@ def check_guess(guess, secret):
         g = str(guess)
         if g == secret:
             return "Win", "🎉 Correct!"
-        if g > secret:
+        if g < secret:
             return "Too High", "📈 Go HIGHER!"
         return "Too Low", "📉 Go LOWER!"
 
@@ -133,7 +138,9 @@ with col3:
 
 if new_game:
     st.session_state.attempts = 0
-    st.session_state.secret = random.randint(1, 100)
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.status = "playing"
+    st.session_state.history = []
     st.success("New game started.")
     st.rerun()
 

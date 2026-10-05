@@ -25,29 +25,37 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [ x] Describe the game's purpose.
+# the purpose of the game is to try to get you to guest the secret number with a hot cold aspect
+- [ x] Detail which bugs you found.
+- [ x] Explain what fixes you applied.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. # for the 1st thing i fixed that it did accept numbers with commas and ckaude help by using .replace() but missed casting the value to int so i did that part.
+2. # for the negative numers i had switch the grater than and less than symbols that seem to work manual testing also fixed the backwards function and got it to work properly. but it kept failing the pytest and i used chatGBT to simplify the code .
+3.  # for the new game button i had copyed and paised the history list and the status but i was missing the randint(low,high) and cluade help me see that.
+4.
+5. 
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
+![alt text](image.png)
 
 ## 🧪 Test Results
 
 ```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
-```
+#======================================================================================================================== test session starts ========================================================================================================================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: E:\Codepath 110\ai110-module1show-gameglitchinvestigator-starter
+plugins: anyio-4.15.1
+collected 3 items                                                                                                                                                                                                                                                    
+
+tests\test_game_logic.py ...                                                                                                                                                                                                                                   [100%]
+
+========================================================================================================================= 3 passed in 0.02s =========================================================================================================================
+(.venv) PS E:\Codepath 110\ai110-module1show-gameglitchinvestigator-starter> 
 
 ## 🚀 Stretch Features
 
